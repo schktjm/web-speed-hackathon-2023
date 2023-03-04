@@ -1,8 +1,7 @@
 import CanvasKitInit from 'canvaskit-wasm';
 import CanvasKitWasmUrl from 'canvaskit-wasm/bin/canvaskit.wasm?url';
 import classNames from 'classnames';
-import _ from 'lodash';
-import { memo, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import type { FC } from 'react';
 
 import type { ProductFragmentResponse } from '../../../graphql/fragments';
@@ -40,7 +39,7 @@ type Props = {
   title: string;
 };
 
-export const ProductHeroImage: FC<Props> = memo(({ product, title }) => {
+export const ProductHeroImage: FC<Props> = ({ product, title }) => {
   const thumbnailFile = product.media.find((productMedia) => productMedia.isThumbnail)?.file;
 
   const [imageDataUrl, setImageDataUrl] = useState<string>();
@@ -92,6 +91,6 @@ export const ProductHeroImage: FC<Props> = memo(({ product, title }) => {
       }}
     </GetDeviceType>
   );
-}, _.isEqual);
+};
 
 ProductHeroImage.displayName = 'ProductHeroImage';
