@@ -9,6 +9,9 @@
     <% for (var href of videos) { %>
     <link rel="preload" as="video" fetchPriority="high" href="<%= href %>" />
     <% } %>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet" />
 
     <script type="module" src="<%= module %>"></script>
   </head>
