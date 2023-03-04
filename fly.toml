@@ -1,3 +1,6 @@
+# fly.toml file generated for proud-thunder-2610 on 2023-03-04T12:57:06+09:00
+
+app = "twilight-moon-8113"
 kill_signal = "SIGINT"
 kill_timeout = 5
 processes = []
