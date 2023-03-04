@@ -20,6 +20,8 @@ export const container = () => css`
 export const image = () => css`
   height: auto;
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 `;
 
 export const overlay = () => css`
