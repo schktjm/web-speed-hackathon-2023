@@ -1,5 +1,5 @@
 import { injectGlobal as css } from '@emotion/css';
-import resetCssText from 'modern-css-reset/src/reset.css?raw';
+import resetCssText from 'modern-css-reset/dist/reset.min.css?raw';
 
 export const injectGlobalStyle = () => css`
   ${resetCssText}
