@@ -2,10 +2,9 @@ import path from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import { visualizer } from 'rollup-plugin-visualizer';
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 import { ViteEjsPlugin } from 'vite-plugin-ejs';
 import topLevelAwait from 'vite-plugin-top-level-await';
-import wasm from 'vite-plugin-wasm';
 
 import { getFileList } from './tools/get_file_list';
 
@@ -19,32 +18,30 @@ const getPublicFileList = async (targetPath: string) => {
   return publicFiles;
 };
 
-export default defineConfig(async ({mode}) => {
+export default defineConfig(async ({ mode }) => {
   const videos = await getPublicFileList(path.resolve(publicDir, 'videos'));
 
   return {
     build: {
-      assetsInlineLimit: 2048,
       minify: false,
       rollupOptions: {
         output: {
-          experimentalMinChunkSize: 4096,
+          experimentalMinChunkSize: 0,
         },
         plugins: [
-          mode === 'analyze' &&  visualizer({
-            brotliSize: true,
-            filename: 'dist/stats.html',
-            gzipSize: true,
-            open: true,
-          }),
+          mode === 'analyze' &&
+            visualizer({
+              filename: 'dist/stats.html',
+              open: true,
+            }),
         ],
       },
-      target: 'es2015',
+      target: 'chrome110',
     },
     plugins: [
       react(),
-      wasm(),
       topLevelAwait(),
+      splitVendorChunkPlugin(),
       ViteEjsPlugin({
         module: '/src/client/index.tsx',
         title: '買えるオーガニック',
