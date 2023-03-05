@@ -52,7 +52,7 @@ export const CartItem: FC<Props> = ({ item, onRemove, onUpdate }) => {
           </div>
         </Anchor>
       </div>
-      <div className={styles.container()}>
+      <div className={styles.controller()}>
         <label className={styles.counter()}>
           個数:
           <input
