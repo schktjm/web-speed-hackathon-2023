@@ -35,8 +35,6 @@ export const OrderForm: FC<Props> = ({ onSubmit }) => {
     const zipCode = event.target.value;
 
     if (zipCode.length < 7) {
-      formik.setFieldValue('prefecture', '');
-      formik.setFieldValue('city', '');
       return;
     }
 
