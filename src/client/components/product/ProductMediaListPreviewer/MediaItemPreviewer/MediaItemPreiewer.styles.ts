@@ -8,6 +8,14 @@ export const video = () => css`
   height: auto;
   object-fit: cover;
   width: 100%;
+
+  @media screen and (max-width: 1024px) {
+    ${video__mobile()}
+  }
+
+  @media screen and (min-width: 1024px) {
+    ${video__desktop()}
+  }
 `;
 
 export const video__mobile = () => css`

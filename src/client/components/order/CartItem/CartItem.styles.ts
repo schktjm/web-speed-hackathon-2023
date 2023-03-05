@@ -2,6 +2,13 @@ import { css } from '@emotion/css';
 
 export const container = () => css`
   display: flex;
+
+  @media screen and (max-width: 1024px) {
+    ${container__mobile()}
+  }
+  @media screen and (min-width: 1024px) {
+    ${container__desktop()}
+  }
 `;
 
 export const container__mobile = () => css`
@@ -37,6 +44,13 @@ export const thumbnail = () => css`
   border-radius: 8px;
   overflow: hidden;
   position: relative;
+
+  @media screen and (max-width: 1024px) {
+    ${thumbnail__mobile()}
+  }
+  @media screen and (min-width: 1024px) {
+    ${thumbnail__desktop()}
+  }
 `;
 
 export const thumbnail__mobile = () => css`
@@ -81,6 +95,13 @@ export const controller = () => css`
   display: flex;
   gap: 16px;
   padding: 4px 8px;
+
+  @media screen and (max-width: 1024px) {
+    ${controller__mobile()}
+  }
+  @media screen and (min-width: 1024px) {
+    ${controller__desktop()}
+  }
 `;
 
 export const controller__desktop = () => css`

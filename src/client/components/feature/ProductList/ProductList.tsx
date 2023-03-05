@@ -1,7 +1,7 @@
 import type { FC } from 'react';
 
 import type { FeatureSectionFragmentResponse } from '../../../graphql/fragments';
-import { DeviceType, GetDeviceType } from '../../foundation/GetDeviceType';
+import { useWindowSize } from '../../../hooks/useWindowSize';
 import { ProductGridList } from '../ProductGridList';
 import { ProductListSlider } from '../ProductListSlider';
 
@@ -10,19 +10,11 @@ type Props = {
 };
 
 export const ProductList: FC<Props> = ({ featureSection }) => {
-  return (
-    <GetDeviceType>
-      {({ deviceType }) => {
-        switch (deviceType) {
-          case DeviceType.DESKTOP: {
-            return <ProductListSlider featureSection={featureSection} />;
-          }
-          case DeviceType.MOBILE: {
-            return <ProductGridList featureSection={featureSection} />;
-          }
-        }
-      }}
-    </GetDeviceType>
+  const { width } = useWindowSize();
+  return width >= 1024 ? (
+    <ProductListSlider featureSection={featureSection} />
+  ) : (
+    <ProductGridList featureSection={featureSection} />
   );
 };
 

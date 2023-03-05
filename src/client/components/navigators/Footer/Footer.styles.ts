@@ -8,18 +8,26 @@ export const container = () => css`
   padding: 32px 24px;
 `;
 
-export const itemList = () => css`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
 export const itemList__desktop = () => css`
   flex-direction: row;
 `;
 
 export const itemList__mobile = () => css`
   flex-direction: column;
+`;
+
+export const itemList = () => css`
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  @media screen and (max-width: 1024px) {
+    ${itemList__mobile()}
+  }
+
+  @media screen and (min-width: 1024px) {
+    ${itemList__desktop()}
+  }
 `;
 
 export const item = () => css`
