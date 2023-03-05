@@ -23,7 +23,7 @@ export default defineConfig(async ({ mode }) => {
 
   return {
     build: {
-      minify: false,
+      minify: 'esbuild',
       rollupOptions: {
         output: {
           experimentalMinChunkSize: 0,
