@@ -1,6 +1,5 @@
-import 'core-js';
+// import 'core-js';
 import 'setimmediate';
-import './temporal';
 
 declare global {
   // eslint-disable-next-line @typescript-eslint/consistent-type-definitions
