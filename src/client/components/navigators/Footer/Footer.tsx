@@ -18,7 +18,7 @@ export const Footer: FC = () => {
         ))}
       </ul>
       <NavLink to="/">
-        <Image src="/icons/logo.svg" />
+        <Image alt="買えるオーガニック ロゴ" height="32px" src="/icons/logo.svg" width="205px" />
       </NavLink>
     </footer>
   );

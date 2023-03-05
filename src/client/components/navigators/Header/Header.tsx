@@ -16,7 +16,7 @@ export const Header: FC = () => {
     <header className={styles.container()}>
       <Anchor href="/">
         <div className={styles.logo()}>
-          <Image src="/icons/logo.svg" />
+          <Image alt="買えるオーガニック ロゴ" height="32px" src="/icons/logo.svg" width="205px" />
         </div>
       </Anchor>
       {isAuthUser ? (
@@ -30,6 +30,7 @@ export const Header: FC = () => {
           className={styles.signInButton()}
           data-testid="navigate-signin"
           onClick={() => handleOpenModal('SIGN_IN')}
+          type="button"
         >
           <Icon color="#222222" height={20} type="FaUser" width={20} />
         </button>
